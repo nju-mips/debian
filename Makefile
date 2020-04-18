@@ -1,5 +1,9 @@
 .PHONY: install-%
 
+# download image from yun.baidu.com
+# link: https://pan.baidu.com/s/1GJKpBK5Ccw5AZIg6Cy57lw
+# code: n46u
+
 debian.img:
 	dd if/dev/zero of=$@ bs=512M count=1
 	mkdir -p rootfs
