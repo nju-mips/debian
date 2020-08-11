@@ -5,8 +5,10 @@
 # code: n46u
 
 debian.img:
-	dd if/dev/zero of=$@ bs=512M count=1
+	# sudo apt-get install debootstrap qemu-user-static
+	dd if=/dev/zero of=$@ bs=512M count=1
 	mkdir -p rootfs
+	sudo mkfs.ext4 $@
 	sudo mount $@ $(PWD)/rootfs -o loop
 	sudo qemu-debootstrap --arch mipsel stretch rootfs http://deb.debian.org/debian/
 	sudo umount rootfs
